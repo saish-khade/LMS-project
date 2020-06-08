@@ -61,7 +61,7 @@ if(!isset($_SESSION['id'])){
                 <button class="btn btn-block btn-lg btn-primary">I am verified!</button>
                 <?php } ?>
 
-                <?php if(!($_SESSION['verified'])) { ?>
+                <?php if($_SESSION['verified'] != True) { ?>
                 <div class="alert alert-warning">
                     You need to verify your account.
                     Sign in to your gmail account and click 
