@@ -177,12 +177,12 @@ function verifyUser($token)
 {   
     //to use conn inside our function
     global $conn;
-    $sql="SELECT * from users where token='$token' limit 1";
+    $sql="SELECT * from `users` where `token`='$token' limit 1; ";
     $result= mysqli_query($conn,$sql);
 
     if(mysqli_num_rows($result)>0){
         $user = mysqli_fetch_assoc($result);
-        $update_query = "UPDATE users set verified=1 where token=$token";
+        $update_query = "UPDATE `users` set `verified`=1 where `token`='$token'; ";
         $result=mysqli_query($conn,$update_query);
 
         if($result){
@@ -190,7 +190,7 @@ function verifyUser($token)
             $_SESSION['id']=$user['id'];
             $_SESSION['username']=$user['username'];
             $_SESSION['email']=$user['email'];
-            $_SESSION['verified']=true;
+            $_SESSION['verified']=True;
             //set flash message
             $_SESSION['message']="Your email was successfully verified!!";
             //this will display our message in green box
